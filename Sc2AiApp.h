@@ -12,10 +12,15 @@ class Sc2AiApp : public QMainWindow
 public:
     Sc2AiApp(Sc2AiManager* MainApp, QWidget* parent = Q_NULLPTR);
 
-    void InitalizeValues();
-
-    std::string GenerateLadderConfig();
-
+    // Input field getters
+    std::string GetRace() { return ui.RaceCombo->currentText().toStdString(); }
+    std::string GetAPI() { return ui.APICombo->currentText().toStdString(); }
+    std::string GetFileName() { return ui.DirectoryEdit->text().toStdString(); }
+    std::string GetBotName() { return ui.BotNameEdit->text().toStdString(); }
+    std::string GetArgs() { return ui.ArgsEdit->text().toStdString(); }
+    bool GetDebug() { return ui.DebugCheckBox->isChecked(); }
+    bool GetDowloadable() { return ui.DownloadCheckBox->isChecked(); }
+    bool GetHumanPlayable() { return ui.VsHumanCheckBox->isChecked(); }
 
 private:
     Ui::Sc2AiAppDialog ui;
@@ -24,9 +29,8 @@ private:
 private slots:
     void OnBrowseButtonPressed();
     void OnGenerateConfigPressed();
-    void OnTestPressed();
     void OnUploadPressed();
     void OnLaunchPressed();
     void OnHumanLaunchPressed();
-	void tabSelected();
+    void tabSelected();
 };

@@ -26,8 +26,8 @@ Sc2AiApp::Sc2AiApp(Sc2AiManager* InMainApp, QWidget* parent)
 {
     ui.setupUi(this);
     connect(ui.BrowseButton, SIGNAL(released()), this, SLOT(OnBrowseButtonPressed()));
+    connect(ui.UBrowseButton, SIGNAL(released()), this, SLOT(OnBrowseButtonPressed()));
     connect(ui.ConfigButton, SIGNAL(released()), this, SLOT(OnGenerateConfigPressed()));
-    connect(ui.TestButton, SIGNAL(released()), this, SLOT(OnTestPressed()));
     connect(ui.UploadButton, SIGNAL(released()), this, SLOT(OnUploadPressed()));
     connect(ui.LaunchButton, SIGNAL(released()), this, SLOT(OnLaunchPressed()));
     connect(ui.HLaunchButton, SIGNAL(released()), this, SLOT(OnHumanLaunchPressed()));
@@ -35,8 +35,8 @@ Sc2AiApp::Sc2AiApp(Sc2AiManager* InMainApp, QWidget* parent)
 
     for (const auto& ServerRegion : MainApp->GetServerRegions())
     {
-        ui.RegionCombo->addItem(ServerRegion.first.c_str());
-        ui.HRegionCombo->addItem(ServerRegion.first.c_str());
+        ui.RegionCombo->addItem(ServerRegion.first.c_str(), ServerRegion.second.c_str());
+        ui.HRegionCombo->addItem(ServerRegion.first.c_str(), ServerRegion.second.c_str());
     }
 
     for (const std::string& Map : MainApp->GetActiveMaps())
@@ -44,78 +44,54 @@ Sc2AiApp::Sc2AiApp(Sc2AiManager* InMainApp, QWidget* parent)
         ui.MapCombo->addItem(Map.c_str());
         ui.HMapCombo->addItem(Map.c_str());
     }
-    for (const std::string LocalBot : MainApp->GetLocalBotDirs(true))
+    for (const std::string LocalBot : MainApp->GetLocalBotDirs("",  true))
     {
         ui.LocalBotCombo->addItem(LocalBot.c_str());
     }
 
-}
+    for (const std::string& RemoteBot : MainApp->GetRemoteBotList(TESTABLE_BOTS_PATH))
+    {
+        ui.RemoteBotCombo->addItem(RemoteBot.c_str());
+    }
 
-void Sc2AiApp::InitalizeValues()
-{
-
+    for (const std::string& HumanRemoteBot : MainApp->GetRemoteBotList(HUMAN_BOTS_PATH))
+    {
+        ui.HRemoteBotCombo->addItem(HumanRemoteBot.c_str());
+    }
 }
 
 void Sc2AiApp::OnBrowseButtonPressed()
 {
-//    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),"",QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    QString fileName = QFileDialog::getOpenFileName(this);
-    ui.DirectoryEdit->setText(fileName);
-}
-
-std::string Sc2AiApp::GenerateLadderConfig()
-{
-    Document ConfigDoc;
-    ConfigDoc.SetObject();
-    rapidjson::Document::AllocatorType& allocator = ConfigDoc.GetAllocator();
-    rapidjson::Value BotsTopLevel(rapidjson::kObjectType);
-    rapidjson::Value BotObject(rapidjson::kObjectType);
-
-    std::string Race = ui.RaceCombo->currentText().toStdString();
-    std::string API = ui.APICombo->currentText().toStdString();
-    std::string FileName = ui.DirectoryEdit->text().toStdString();
-    std::string BotName = ui.BotNameEdit->text().toStdString();
-//    BotObject.AddMember(rapidjson::Value("BotName", allocator).Move(), rapidjson::Value(ui.BotNameEdit->text().toStdString().c_str(), allocator).Move(), allocator);
-    BotObject.AddMember(rapidjson::Value("Race", allocator).Move(), rapidjson::Value(Race, allocator).Move(), allocator);
-    BotObject.AddMember(rapidjson::Value("BotType", allocator).Move(), rapidjson::Value(API, allocator).Move(), allocator);
-    BotObject.AddMember(rapidjson::Value("RootPath", allocator).Move(), rapidjson::Value("./", allocator).Move(), allocator);
-    BotObject.AddMember(rapidjson::Value("FileName", allocator).Move(), rapidjson::Value(FileName, allocator).Move(), allocator);
-    if (ui.DebugCheckBox->isChecked())
+    QString dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),"",QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    ui.ULocalBotText->setText(dir);
+    ui.LocalBotText->setText(dir);
+    ui.LocalBotCombo->clear();
+    for (const std::string LocalBot : MainApp->GetLocalBotDirs(dir.toStdString(), true))
     {
-        BotObject.AddMember(rapidjson::Value("Debug", allocator).Move(), rapidjson::Value(ui.DebugCheckBox->isChecked()), allocator);
+        ui.LocalBotCombo->addItem(LocalBot.c_str());
     }
-    string Arguments = ui.ArgsEdit->text().toStdString();
-    if (Arguments != "")
-    {
-        BotObject.AddMember(rapidjson::Value("Args", allocator).Move(), rapidjson::Value(Arguments, allocator).Move(), allocator);
-    }
-    BotsTopLevel.AddMember(rapidjson::Value(BotName, allocator), BotObject, allocator);
-    ConfigDoc.AddMember(rapidjson::Value("Bots", allocator), BotsTopLevel, allocator);
-    StringBuffer buffer;
-    PrettyWriter<StringBuffer> writer(buffer);
-    ConfigDoc.Accept(writer);
-    std::string ReturnString = buffer.GetString();
-    return ReturnString;
 }
 
 void Sc2AiApp::OnGenerateConfigPressed()
 {
-    string ConfigString = GenerateLadderConfig();
-    string ConfigFileLocation = string(BOTS_DIRECTORY) + string("/") + ui.BotNameEdit->text().toStdString();
-    std::filesystem::create_directories(ConfigFileLocation);
-
-    ConfigFileLocation += string("/ladderbots.json");
-    std::ofstream ofs(ConfigFileLocation);
-    ofs << ConfigString;
-    ofs.close();
-}
-
-void Sc2AiApp::OnTestPressed()
-{
+    std::string Error;
+    MainApp->WriteBotConfig(Error);
+    MainApp->ShowError(Error);
 }
 
 void Sc2AiApp::OnUploadPressed()
 {
+    std::string Error;
+    if (!MainApp->WriteBotConfig(Error))
+    {
+        MainApp->ShowError(Error);
+    }
+    std::string BotZipLocation = MainApp->PrepareBotDirectory(ui.BotNameEdit->text().toStdString(), ui.RaceCombo->currentText().toStdString(), Error);
+    if (BotZipLocation != "")
+    {
+        MainApp->UploadBot(ui.BotNameEdit->text().toStdString(), ui.RaceCombo->currentText().toStdString(), BotZipLocation, Error);
+        MainApp->ShowError(Error);
+    }
 }
 
 void Sc2AiApp::OnLaunchPressed()
@@ -124,7 +100,7 @@ void Sc2AiApp::OnLaunchPressed()
 
     sc2::Race NewRace = GetRaceFromString(ui.HRaceCombo->currentText().toStdString());
 
-    NewGame->StartGame(ui.LocalBotCombo->currentText().toStdString(), ui.RemoteBotCombo->currentText().toStdString(), ui.MapCombo->currentText().toStdString(), "", "", ui.RegionCombo->currentText().toStdString(), false, NewRace);
+    GameResult result = NewGame->StartGame(ui.LocalBotCombo->currentText().toStdString(), ui.RemoteBotCombo->currentText().toStdString(), ui.MapCombo->currentText().toStdString(), MainApp->ServerUsername, MainApp->ServerToken, ui.RegionCombo->currentData().toString().toStdString(), false, NewRace);
 
 }
 
@@ -134,22 +110,13 @@ void Sc2AiApp::OnHumanLaunchPressed()
 
     sc2::Race NewRace = GetRaceFromString(ui.HRaceCombo->currentText().toStdString());
 
-    NewGame->StartGame("Human", ui.HRemoteBotCombo->currentText().toStdString(), ui.HMapCombo->currentText().toStdString(), "", "", ui.HRegionCombo->currentText().toStdString(), true, NewRace);
+    GameResult result = NewGame->StartGame("Human", ui.HRemoteBotCombo->currentText().toStdString(), ui.HMapCombo->currentText().toStdString(), MainApp->ServerUsername, MainApp->ServerToken, ui.HRegionCombo->currentData().toString().toStdString(), true, NewRace);
 
 }
+
 
 void Sc2AiApp::tabSelected()
 {
-    if (ui.tabWidget->currentIndex() == 0)
-    {
-
-        // Do something here when user clicked at tab1
-
-    }
-    if (ui.tabWidget->currentIndex() == 3)
-    {
-
-        // Do something here when user clicked at tab4
-
-    }
+    MainApp->ToggleBotsListWindow(ui.tabWidget->currentIndex() == 0);
 }
+
