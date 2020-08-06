@@ -1,0 +1,3 @@
+[submodule "Sc2LadderServer"]
+	path = Sc2LadderServer
+	url = https://github.com/Cryptyc/Sc2LadderServer

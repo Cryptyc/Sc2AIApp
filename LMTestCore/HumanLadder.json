@@ -1,0 +1,9 @@
+{ 
+"LocalReplayDirectory" : "Replays/", 
+"EnableReplayUpload" : "False", 
+"EnableServerLogin" : "False", 
+"ResultsLogFile" : "Results.json", 
+"PlayerIdFile" : "PlayerIds", 
+"PythonBinary" : "python", 
+"ReplayBotRenameProgram" : "BotReplayRename.exe" 
+}

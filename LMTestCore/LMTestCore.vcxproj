@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{6DEDD386-623C-4878-8DD8-CAD3896F18E9}</ProjectGuid>
+    <RootNamespace>LMTestCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMHumanBot;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\contrib\ipv6-parse;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\src\sc2utils;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMProxyBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Release\LMProxyBot.lib;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Release\LMHumanBot.lib;..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2lib.lib;..\cpp-sc2\bin\sc2api.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utils.lib;..\cpp-sc2\bin\sc2protocol.lib;..\cpp-sc2\bin\libprotobuf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMHumanBot;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\contrib\ipv6-parse;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\src\sc2utils;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMProxyBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Debug\LMProxyBot.lib;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Debug\LMHumanBot.lib;..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2libd.lib;..\cpp-sc2\bin\sc2apid.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utilsd.lib;..\cpp-sc2\bin\sc2protocold.lib;civetweb.lib;..\cpp-sc2\bin\libprotobufd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="LadderManagerTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LadderManagerTest.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
