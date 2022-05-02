@@ -19,9 +19,12 @@
 #include <iostream>
 #include <filesystem>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
 using namespace rapidjson;
+namespace fs = std::filesystem;
+
 
 string EscapeString(const string InString)
 {
@@ -338,21 +341,21 @@ int Sc2AiManager::RunApp()
     QRect CurrentGeometry = BotListWindow->geometry();
     CurrentGeometry.setY(CurrentGeometry.y() + AppSc2Ai->geometry().y());
     BotListWindow->setGeometry(CurrentGeometry);
-    AppLoginWindow->show();
+    AppLoginWindow->hide();
+    AppSc2Ai->show();
     BotListWindow->hide();
     return app->exec();
 }
 
-std::vector<std::string> Sc2AiManager::GetLocalBotDirs(std::string NewDir, bool NeedConfig)
+void Sc2AiManager::GetLocalBotDirs(std::string NewDir, bool NeedConfig, std::vector<std::string>& directories)
 {
     if (NewDir != "")
     {
         CurrentBotDir = NewDir;
     }
-    std::vector<std::string> directories;
     if (!filesystem::exists(CurrentBotDir))
     {
-        return directories;
+        return;
     }
     std::filesystem::directory_iterator dirIter(CurrentBotDir);
     for (const std::filesystem::directory_entry& Directory : dirIter)
@@ -372,31 +375,41 @@ std::vector<std::string> Sc2AiManager::GetLocalBotDirs(std::string NewDir, bool 
             }
         }
     }
-    return directories;
+    return;
 }
 
-vector<std::string> Sc2AiManager::GetActiveMaps()
+void Sc2AiManager::GetActiveMaps(std::vector<std::string>& ActiveMaps)
 {
-    vector<string> ActiveMaps;
-    vector<string> arguments;
-    string RegionsString = PerformRestRequest(MAPS_PATH, arguments);
-    Document doc;
-    bool parsingFailed = doc.Parse(RegionsString.c_str()).HasParseError();
-    if (parsingFailed)
+    ActiveMaps.clear();
+    std::string ConfigFileLocation = fs::current_path().string() + "/HumanLadder.json";
+    if (!fs::exists(ConfigFileLocation))
     {
-        PrintThread{} << "Unable to parse incoming upload result: " << RegionsString << std::endl;
+        return;
     }
-    if (doc.IsArray())
+    std::ifstream t(ConfigFileLocation);
+    if (!t.good())
     {
-        for (const auto& ArrayValue : doc.GetArray())
+        return;
+    }
+    std::stringstream buffer;
+    buffer << t.rdbuf();
+    std::string ConfigString = buffer.str();
+    Document doc;
+    if(doc.Parse(ConfigString.c_str()).HasParseError())
+    {
+        return;
+    }
+    if (doc.HasMember("Maps") && doc["Maps"].IsArray())
+    {
+        for (const auto& ArrayValue : doc["Maps"].GetArray())
         {
             if (ArrayValue.IsString())
             {
                 ActiveMaps.push_back(ArrayValue.GetString());
             }
         }
+
     }
-    return ActiveMaps;
 }
 
 bool Sc2AiManager::WriteBotConfig(std::string& ErrorMessage)

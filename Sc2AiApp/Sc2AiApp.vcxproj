@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -11,102 +11,111 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A0D86EBB-1F05-4E32-87DB-E29C050A2C7D}</ProjectGuid>
-    <Keyword>QtVS_v302</Keyword>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{5D70539B-4C22-47B6-AE1A-BC4CC97511F5}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>6.3.0_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>6.3.0_msvc2019_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
   </Target>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
-    <Import Project="$(QtMsBuild)\qt_defaults.props" />
-  </ImportGroup>
-  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
   </PropertyGroup>
-  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
-  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
-    <Import Project="$(QtMsBuild)\qt.props" />
-  </ImportGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMTestCore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMHumanBot;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\contrib\ipv6-parse;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\src\sc2utils;$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\contrib\ipv6-parse;F:\SC2AiArena\Sc2LadderServer\src\sc2laddercore;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\include;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\generated;F:\SC2AiArena\Sc2LadderServer\rapidjson;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\src\sc2utils;F:\SC2AiArena\LMTestCore;F:\SC2AiArena\LMProxyBot;F:\SC2AiArena\LMHumanBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\bin;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Debug;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>LMHumanBot.lib;LMProxyBot.lib;LMTestCore.lib;Sc2LadderCore.lib;sc2libd.lib;sc2apid.lib;civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;sc2utilsd.lib;sc2protocold.lib;civetweb.lib;libprotobufd.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:/SC2AiArena/Sc2LadderServer/build_vs2022;F:/SC2AiArena/Sc2LadderServer/build_vs2022/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin;F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/x64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2libd.lib;..\cpp-sc2\bin\sc2apid.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utilsd.lib;..\cpp-sc2\bin\sc2protocold.lib;civetweb.lib;..\cpp-sc2\bin\libprotobufd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;LMTestCore.lib;LMProxyBot.lib;LMHumanBot.lib;%(AdditionalDependencies);$(Qt_LIBS_)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DebugInformationFormat />
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\contrib\ipv6-parse;F:\SC2AiArena\Sc2LadderServer\src\sc2laddercore;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\include;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\generated;F:\SC2AiArena\Sc2LadderServer\rapidjson;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\src\sc2utils;F:\SC2AiArena\LMTestCore;F:\SC2AiArena\LMProxyBot;F:\SC2AiArena\LMHumanBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>F:/SC2AiArena/Sc2LadderServer/build_vs2022;F:/SC2AiArena/Sc2LadderServer/build_vs2022/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin;F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/x64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2lib.lib;..\cpp-sc2\bin\sc2api.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utils.lib;..\cpp-sc2\bin\sc2protocol.lib;civetweb.lib;..\cpp-sc2\bin\libprotobuf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;LMTestCore.lib;LMProxyBot.lib;LMHumanBot.lib;%(AdditionalDependencies);$(Qt_LIBS_)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMTestCore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\bin;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Release;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);$(Qt_LIBPATH_);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>LMHumanBot.lib;LMProxyBot.lib;LMTestCore.lib;Sc2LadderCore.lib;sc2lib.lib;sc2api.lib;civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;sc2utils.lib;sc2protocol.lib;civetweb.lib;libprotobuf.lib;$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BotsList.cpp" />
-    <ClCompile Include="ConfirmButton.cpp" />
-    <ClCompile Include="LoginWindow.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Sc2AiApp.cpp" />
     <ClCompile Include="Sc2AiManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="Sc2AiApp.h" />
-  </ItemGroup>
-  <ItemGroup>
+    <QtRcc Include="SC2AIApp.qrc" />
     <QtUic Include="BotsList.ui" />
     <QtUic Include="ConfirmButton.ui" />
     <QtUic Include="LoginWindow.ui" />
-    <QtUic Include="Sc2AiApp.ui" />
+    <QtUic Include="SC2AIApp.ui" />
+    <QtMoc Include="SC2AIApp.h" />
+    <ClCompile Include="BotsList.cpp" />
+    <ClCompile Include="ConfirmButton.cpp" />
+    <ClCompile Include="LoginWindow.cpp" />
+    <ClCompile Include="SC2AIApp.cpp" />
+    <ClCompile Include="main.cpp" />
     <QtUic Include="Sc2AiAppDialog.ui" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="Sc2AiApp.qrc" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BotsList.h" />

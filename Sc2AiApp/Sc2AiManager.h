@@ -50,8 +50,8 @@ public:
     bool LoginRequest(std::string Username, std::string Password, std::string& ErrorResult);
     void RefreshLocalBots(std::string NewDir);
     bool RefreshBotsList(std::string ResultString, std::string& ErrorResult);
-    std::vector<std::string> GetLocalBotDirs(std::string NewDir, bool NeedConfig);
-    std::vector<std::string> GetActiveMaps();
+    void GetLocalBotDirs(std::string NewDir, bool NeedConfig, std::vector<std::string>& directories);
+    void GetActiveMaps(std::vector<std::string>& ActiveMaps);
 
     bool WriteBotConfig(std::string& ErrorMessage);
 

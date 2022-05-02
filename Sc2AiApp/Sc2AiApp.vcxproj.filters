@@ -10,25 +10,48 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
-      <ParseFiles>false</ParseFiles>
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Form Files">
       <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
       <Extensions>ui</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
-      <Extensions>qrc;*</Extensions>
-      <ParseFiles>false</ParseFiles>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <QtRcc Include="SC2AIApp.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="SC2AIApp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="SC2AIApp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="SC2AIApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sc2AiApp.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="BotsList.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ConfirmButton.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="LoginWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Sc2AiAppDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BotsList.cpp">
@@ -45,9 +68,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Sc2AiApp.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="BotsList.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -57,28 +77,6 @@
     <QtMoc Include="LoginWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="Sc2AiApp.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="BotsList.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="ConfirmButton.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="LoginWindow.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Sc2AiAppDialog.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
-    <QtRcc Include="Sc2AiApp.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sc2AiManager.h">

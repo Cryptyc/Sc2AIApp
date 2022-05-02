@@ -41,13 +41,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -78,7 +78,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMHumanBot;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\contrib\ipv6-parse;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\src\sc2utils;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMProxyBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\contrib\ipv6-parse;F:\SC2AiArena\Sc2LadderServer\src\sc2laddercore;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\include;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\generated;F:\SC2AiArena\Sc2LadderServer\rapidjson;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\src\sc2utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -87,8 +87,8 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Release\LMProxyBot.lib;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Release\LMHumanBot.lib;..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2lib.lib;..\cpp-sc2\bin\sc2api.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utils.lib;..\cpp-sc2\bin\sc2protocol.lib;..\cpp-sc2\bin\libprotobuf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>F:\SC2AiArena\Sc2LadderServer\build_vs2022\x64\Release\LMProxyBot.lib;F:\SC2AiArena\Sc2LadderServer\build_vs2022\x64\Release\LMHumanBot.lib;..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2lib.lib;..\cpp-sc2\bin\sc2api.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utils.lib;..\cpp-sc2\bin\sc2protocol.lib;..\cpp-sc2\bin\libprotobuf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:/SC2AiArena/Sc2LadderServer/build_vs2022;F:/SC2AiArena/Sc2LadderServer/build_vs2022/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin;F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -108,15 +108,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMHumanBot;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\contrib\ipv6-parse;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\src\sc2laddercore;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\include;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\cpp-sc2\generated;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\rapidjson;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\cpp-sc2\src\sc2utils;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\LMProxyBot;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\civetweb\include;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\contrib\ipv6-parse;F:\SC2AiArena\Sc2LadderServer\src\sc2laddercore;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\include;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\contrib\protobuf\src;F:\SC2AiArena\Sc2LadderServer\build_vs2022\cpp-sc2\generated;F:\SC2AiArena\Sc2LadderServer\rapidjson;F:\SC2AiArena\Sc2LadderServer\cpp-sc2\src\sc2utils;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/$(Configuration);E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin;E:/Sc2AI/NewerHumanGUI/Sc2LadderServer/build_vs2019/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Debug\LMProxyBot.lib;E:\Sc2AI\NewerHumanGUI\Sc2LadderServer\build_vs2019\x64\Debug\LMHumanBot.lib;..\bin\Sc2LadderCore.lib;..\cpp-sc2\bin\sc2libd.lib;..\cpp-sc2\bin\sc2apid.lib;..\cpp-sc2\bin\civetweb.lib;..\cpp-sc2\contrib\ipv6-parse\bin\ipv6-parse.lib;..\cpp-sc2\bin\sc2utilsd.lib;..\cpp-sc2\bin\sc2protocold.lib;civetweb.lib;..\cpp-sc2\bin\libprotobufd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:/SC2AiArena/Sc2LadderServer/build_vs2022;F:/SC2AiArena/Sc2LadderServer/build_vs2022/$(Configuration);F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin;F:/SC2AiArena/Sc2LadderServer/build_vs2022/cpp-sc2/bin/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>..\bin\Sc2LadderCore.lib;..\s2client-api\bin\sc2libd.lib;..\s2client-api\bin\sc2apid.lib;..\s2client-api\bin\civetweb.lib;..\s2client-api\contrib\ipv6-parse\bin\ipv6-parse.lib;..\s2client-api\bin\sc2utilsd.lib;..\s2client-api\bin\sc2protocold.lib;civetweb.lib;..\s2client-api\bin\libprotobufd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

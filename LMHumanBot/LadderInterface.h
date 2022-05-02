@@ -130,7 +130,7 @@ static void ParseArguments(int argc, char* argv[], ConnectionOptions& connect_op
     arg_parser.Get("OpponentId", connect_options.OpponentId);
 }
 
-static void RunBot(sc2::Agent* Agent, sc2::Race race, ConnectionOptions Options)
+static void RunBot(sc2::Agent* Agent, sc2::Race race, ConnectionOptions Options, std::string PlayerName)
 {
     sc2::Coordinator coordinator;
 
@@ -140,7 +140,7 @@ static void RunBot(sc2::Agent* Agent, sc2::Race race, ConnectionOptions Options)
     {
         num_agents = 1;
         coordinator.SetParticipants({
-            CreateParticipant(race, Agent),
+            CreateParticipant(race, Agent, PlayerName),
             CreateComputer(Options.ComputerRace, Options.ComputerDifficulty)
             });
     }
@@ -148,7 +148,7 @@ static void RunBot(sc2::Agent* Agent, sc2::Race race, ConnectionOptions Options)
     {
         num_agents = 2;
         coordinator.SetParticipants({
-            CreateParticipant(race, Agent),
+            CreateParticipant(race, Agent, PlayerName),
             });
     }
 

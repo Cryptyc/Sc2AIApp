@@ -108,12 +108,12 @@ int mainX(int argc, char** argv)
     return 0;
 }
 
-BotConfig GetHumanBot(sc2::Race Race)
+BotConfig GetHumanBot(sc2::Race Race, const std::string PlayerName)
 {
     BotConfig HumanBot;
     HumanBot.Type = BotType::Human;
     HumanBot.Race = Race;
-    HumanBot.BotName = "Human";
+    HumanBot.BotName = PlayerName;
     HumanBot.Skeleton = false;
     HumanBot.PlayerId = "HUMAN";
     return HumanBot;
@@ -280,7 +280,7 @@ namespace LMHuman
         AgentConfig->ReadBotDirectories(BotsDirectory);
         if (IsHuman)
         {
-            TestBot = GetHumanBot(Race);
+            TestBot = GetHumanBot(Race, TestBotName);
         }
         else
         {

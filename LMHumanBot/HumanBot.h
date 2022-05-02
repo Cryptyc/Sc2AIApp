@@ -9,7 +9,7 @@ class HumanBot : public Agent
 public:
     HumanBot(sc2::Race InRace);
 
-    int StartHuman(int32_t GamePort, int32_t StartPort, std::string ServerAddress, bool COmputerOpponent, std::string OpponentId);
+    int StartHuman(int32_t GamePort, int32_t StartPort, std::string ServerAddress, bool COmputerOpponent, std::string OpponentId, std::string PlayerName);
 
 
     // Override functions
